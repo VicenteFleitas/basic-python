@@ -133,12 +133,36 @@ print(weekly_task)
 # make_pizza("queso", "peperoni")
 
 # 1.1. Now we can replace the print() call with a loop
-def make_pizza(*toppings):
+# def make_pizza(*toppings):
+#     """Summarize the pizza we are about to make."""
+#     for topping in toppings:
+#         print(f"- {topping}")
+# print("\n")
+# make_pizza("queso")
+# make_pizza('mushrooms', 'green peppers', 'extra cheese')
+
+# 1.2 Mixing Positional and Arbitrary Arguments
+def make_pizza(size, *toppings):
     """Summarize the pizza we are about to make."""
+    print(f"\nMaking a {size}-inch pizza with the following toppings:")
     for topping in toppings:
         print(f"- {topping}")
-print("\n")
-make_pizza("queso")
-make_pizza('mushrooms', 'green peppers', 'extra cheese')
+make_pizza(8, "pepperoni")
+make_pizza(12, "pepperoni", "extra cheese")
 
-# Mixing Positional and Arbitrary Arguments
+# 2.0 Using Arbitrary Keyword Arguments
+# The double asterisks before the parameter **user_info 
+# cause Python to create a dictionary called user_info
+def build_profile(first, last, **user_info):
+    """Build a dictionary containing everything we know about a user."""
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+
+user_profile = build_profile(
+    "vicen", 
+    "fleitas", 
+    location="cde", 
+    fields="computer"
+)
+print(user_profile)
